@@ -35,5 +35,6 @@ public class MbgApplicationTests {
         System.out.println(album);
         System.out.println("asdasd");
         System.out.println("123123");
+        System.out.println("master");
     }
 }
