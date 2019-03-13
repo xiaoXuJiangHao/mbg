@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.baizhi.dao.AlbumMapper" >
+  <resultMap id="BaseResultMap" type="com.baizhi.entity.Album" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="score" property="score" jdbcType="VARCHAR" />
+    <result column="brodcast" property="brodcast" jdbcType="VARCHAR" />
+    <result column="author" property="author" jdbcType="VARCHAR" />
+    <result column="brief" property="brief" jdbcType="VARCHAR" />
+    <result column="publicTime" property="publictime" jdbcType="TIMESTAMP" />
+    <result column="count" property="count" jdbcType="VARCHAR" />
+    <result column="coverImg" property="coverimg" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="spareOne" property="spareone" jdbcType="VARCHAR" />
+    <result column="spareTwo" property="sparetwo" jdbcType="VARCHAR" />
+    <result column="spareThree" property="sparethree" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, title, score, brodcast, author, brief, publicTime, count, coverImg, status, spareOne, 
+    spareTwo, spareThree
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from album
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from album
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.baizhi.entity.Album" >
+    insert into album (id, title, score, 
+      brodcast, author, brief, 
+      publicTime, count, coverImg, 
+      status, spareOne, spareTwo, 
+      spareThree)
+    values (#{id,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{score,jdbcType=VARCHAR}, 
+      #{brodcast,jdbcType=VARCHAR}, #{author,jdbcType=VARCHAR}, #{brief,jdbcType=VARCHAR}, 
+      #{publictime,jdbcType=TIMESTAMP}, #{count,jdbcType=VARCHAR}, #{coverimg,jdbcType=VARCHAR}, 
+      #{status,jdbcType=VARCHAR}, #{spareone,jdbcType=VARCHAR}, #{sparetwo,jdbcType=VARCHAR}, 
+      #{sparethree,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.baizhi.entity.Album" >
+    insert into album
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="score != null" >
+        score,
+      </if>
+      <if test="brodcast != null" >
+        brodcast,
+      </if>
+      <if test="author != null" >
+        author,
+      </if>
+      <if test="brief != null" >
+        brief,
+      </if>
+      <if test="publictime != null" >
+        publicTime,
+      </if>
+      <if test="count != null" >
+        count,
+      </if>
+      <if test="coverimg != null" >
+        coverImg,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="spareone != null" >
+        spareOne,
+      </if>
+      <if test="sparetwo != null" >
+        spareTwo,
+      </if>
+      <if test="sparethree != null" >
+        spareThree,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="score != null" >
+        #{score,jdbcType=VARCHAR},
+      </if>
+      <if test="brodcast != null" >
+        #{brodcast,jdbcType=VARCHAR},
+      </if>
+      <if test="author != null" >
+        #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="brief != null" >
+        #{brief,jdbcType=VARCHAR},
+      </if>
+      <if test="publictime != null" >
+        #{publictime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="count != null" >
+        #{count,jdbcType=VARCHAR},
+      </if>
+      <if test="coverimg != null" >
+        #{coverimg,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="spareone != null" >
+        #{spareone,jdbcType=VARCHAR},
+      </if>
+      <if test="sparetwo != null" >
+        #{sparetwo,jdbcType=VARCHAR},
+      </if>
+      <if test="sparethree != null" >
+        #{sparethree,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.baizhi.entity.Album" >
+    update album
+    <set >
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="score != null" >
+        score = #{score,jdbcType=VARCHAR},
+      </if>
+      <if test="brodcast != null" >
+        brodcast = #{brodcast,jdbcType=VARCHAR},
+      </if>
+      <if test="author != null" >
+        author = #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="brief != null" >
+        brief = #{brief,jdbcType=VARCHAR},
+      </if>
+      <if test="publictime != null" >
+        publicTime = #{publictime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="count != null" >
+        count = #{count,jdbcType=VARCHAR},
+      </if>
+      <if test="coverimg != null" >
+        coverImg = #{coverimg,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="spareone != null" >
+        spareOne = #{spareone,jdbcType=VARCHAR},
+      </if>
+      <if test="sparetwo != null" >
+        spareTwo = #{sparetwo,jdbcType=VARCHAR},
+      </if>
+      <if test="sparethree != null" >
+        spareThree = #{sparethree,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.baizhi.entity.Album" >
+    update album
+    set title = #{title,jdbcType=VARCHAR},
+      score = #{score,jdbcType=VARCHAR},
+      brodcast = #{brodcast,jdbcType=VARCHAR},
+      author = #{author,jdbcType=VARCHAR},
+      brief = #{brief,jdbcType=VARCHAR},
+      publicTime = #{publictime,jdbcType=TIMESTAMP},
+      count = #{count,jdbcType=VARCHAR},
+      coverImg = #{coverimg,jdbcType=VARCHAR},
+      status = #{status,jdbcType=VARCHAR},
+      spareOne = #{spareone,jdbcType=VARCHAR},
+      spareTwo = #{sparetwo,jdbcType=VARCHAR},
+      spareThree = #{sparethree,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>
