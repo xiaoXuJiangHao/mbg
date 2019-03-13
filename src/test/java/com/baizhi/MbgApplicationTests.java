@@ -33,5 +33,6 @@ public class MbgApplicationTests {
     public void test1(){
         Album album = albumMapper.selectByPrimaryKey("1");
         System.out.println(album);
+        System.out.println("asdasd");
     }
 }
